@@ -3,7 +3,7 @@
 
 # spark-indicator copyright 2018 ben bird
 # https://github.com/happyconcepts/spark-indicator
-# mit license
+# use is subject to creative commons non-commercial share-alike 4.0 license
 
 VERSION = '1.0'
 APPID 	= 'spark-indicator'
@@ -143,11 +143,11 @@ class SparkIndicator(object):
         dialog.set_border_width(10)
         dialog.set_program_name('spark-indicator')
         dialog.set_version(VERSION)
-        dialog.set_license('Creative Commons Attribution License\n\n' + ' A copy of the license is available at https://github.com/happyconcepts/spark-indicator/blob/master/LICENSE' )
+        dialog.set_license('Creative Commons Attribution License\n\n' + ' A copy of the license is available at https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode' )
         dialog.set_wrap_license(True)
         dialog.set_copyright('Copyright 2018 Ben Bird')
         dialog.set_comments('Track Spark, Bitshares, and other coin prices on Linux (Unity desktop)\n'+'Loaded with Python '+ str(sys.version_info[0]) +'\n\n'+'Your donations help:\n\n' + 'BTS: buy-bitcoin\n' +'BitUSD: buy-bitcoin\n'+'Bitcoin: 1FZhqidv4oMRoiry9mGASFL7JSgdB27Mmn')
-        dialog.set_website('http://www.buybts.com/spark')
+        dialog.set_website('https://github.com/happyconcepts/spark-indicator')
         pixbuf = Pixbuf.new_from_file_at_size("icons/bitshares.png", 45, 45)
         dialog.set_logo(pixbuf)
         dialog.run()
