@@ -143,10 +143,10 @@ class SparkIndicator(object):
         dialog.set_border_width(10)
         dialog.set_program_name('spark-indicator')
         dialog.set_version(VERSION)
-        dialog.set_license('Creative Commons Attribution License\n\n' + ' A copy of the license is available at https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode' )
+        dialog.set_license('Creative Commons Attribution Share-Alike Non-Commercial 4 License\n\n' + ' A copy of the license is available at https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode' )
         dialog.set_wrap_license(True)
         dialog.set_copyright('Copyright 2018 Ben Bird')
-        dialog.set_comments('Track Spark, Bitshares, and other coin prices on Linux (Unity desktop)\n'+'Loaded with Python '+ str(sys.version_info[0]) +'\n\n'+'Your donations help:\n\n' + 'BTS: buy-bitcoin\n' +'BitUSD: buy-bitcoin\n'+'Bitcoin: 1FZhqidv4oMRoiry9mGASFL7JSgdB27Mmn')
+        dialog.set_comments('Track Spark, Bitshares, and other coin prices on Linux desktop (Unity)\n'+'Loaded with Python '+ str(sys.version_info[0]) +'\n\n'+'Your donations help:\n\n' + 'Bitshares account: buy-bitcoin\n' +'Bitcoin: 1FZhqidv4oMRoiry9mGASFL7JSgdB27Mmn')
         dialog.set_website('https://github.com/happyconcepts/spark-indicator')
         pixbuf = Pixbuf.new_from_file_at_size("icons/bitshares.png", 45, 45)
         dialog.set_logo(pixbuf)
@@ -309,7 +309,7 @@ class SettingsWindow(Gtk.Window):
 
         box_outer.pack_start(hbox, True, True, 0)
         hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-        label = Gtk.Label("Base currency:", xalign=0)
+        label = Gtk.Label("versus base:", xalign=0)
         button1 = Gtk.RadioButton.new_with_label_from_widget(None, "$ USD")
 
         if ind.base == 'USD':
