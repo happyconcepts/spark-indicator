@@ -291,7 +291,7 @@ class coinmktcap:
 class SettingsWindow(Gtk.Window):
     def __init__(self):
 
-        Gtk.Window.__init__(self, title="Settings")
+        Gtk.Window.__init__(self, title="Spark Settings")
 
         self.set_border_width(15)
         self.set_default_size(300, 160)
