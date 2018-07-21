@@ -4,8 +4,9 @@
 # spark-indicator copyright 2018 ben bird
 # https://github.com/happyconcepts/spark-indicator
 # use is subject to creative commons non-commercial share-alike 4.0 license
-
-VERSION = '1.0'
+# THIS SOFTWARE IS LICENSED FOR NON-COMMERCIAL USE ONLY!
+# open source software improves transparency and security for users of software
+VERSION = '1.0b'
 APPID 	= 'spark-indicator'
 
 import os
