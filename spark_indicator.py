@@ -327,8 +327,19 @@ class SettingsWindow(Gtk.Window):
 
         button2.connect("clicked", self.change_base, "EUR")
 
-	# integer returned is the model index of the currently active item, or -1 if no active item.
+	    # integer returned is the model index of the currently active item, or -1 if no active item.
         hbox.pack_start(button2, False, False, 0)
+
+        button3 = Gtk.RadioButton.new_from_widget(button1)
+        button3.set_label(u'\u00a5' +" Yuan")
+
+        if ind.base == 'CNY':
+            button3.set_active(True)
+
+        button3.connect("clicked", self.change_base, "CNY")
+
+        hbox.pack_start(button3, False, False, 0)
+
         box_outer.pack_start(hbox, True, True, 0)
 
         hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
