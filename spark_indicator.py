@@ -224,7 +224,7 @@ class gate:
             # its a number
                 chg = str(json['percentChange'])
 
-            # kludge fix #15 truncate str at 6 char.
+            # truncate str at 6 char.
             chg = (chg[:5]) if len(chg) > 5 else chg
 
             if chg[:1] != '-':
@@ -357,8 +357,9 @@ class SettingsWindow(Gtk.Window):
             combo.set_active(5)
         elif ind.interval == 240:
             combo.set_active(6)
-        else:
-            pass
+        else: # input not recognized...default to:
+            #pass
+            combo.set_active(2)
 
         hbox.pack_start(label3, True, True, 0)
         hbox.pack_start(combo, False, True, 0)
