@@ -57,7 +57,6 @@ class SparkIndicator(object):
                 print (e)
             print ("creating settings file ...")
             with open(prefFile, 'w') as uf:
-                #uf.write('{"version":"0.1","base":"USD","interval":"5","modified":"'+datetime.now().strftime('%m/%d %H:%M:%S')+'"}\n')
                 uf.write('{"version":"'+VERSION+'","base":"USD","interval":"5","modified":"'+datetime.now().strftime('%m/%d %H:%M:%S')+'"}\n')
             with open(prefFile, 'r') as f:
                 prefs = json.load(f) # read prefs.
