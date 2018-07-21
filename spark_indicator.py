@@ -171,6 +171,12 @@ class SparkIndicator(object):
                     self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/bts.png")
                     print (timestamp + " BTS price: "+ self.c.price())
 
+                elif self.base =='CNY':
+                    self.c = coinmktcap(self.symbol, self.base)
+                    self.ind.set_label(self.c.run() + " ~BTC: "+ self.b.run() , "")
+                    self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/bts.png")
+                    print (timestamp + " BTS price: "+ self.c.price())
+
                 else :
                     self.g = gate(self.symbol, self.base)
                     self.ind.set_label(self.g.run() + " ~BTC: "+ self.b.run() , "")
@@ -282,10 +288,16 @@ class coinmktcap:
                 self.chg = " +"+ self.chg +"% "
             else:
                 self.chg = " ("+self.chg+"%) "
-            return u'\u20AC' + str(self.last) + " "+ self.chg
+            if self.base == 'EUR':
+                return u'\u20AC' + str(self.last) + " "+ self.chg
+            else:
+                return u'\u00a5' + str(self.last) + " "+ self.chg # yuan
 
     def price(self):
-        return  u'\u20AC'+str(self.last)
+        if self.base == 'EUR':
+            return  u'\u20AC'+str(self.last)
+        else:
+            return  u'\u00a5'+str(self.last) # yuan
 
 
 class SettingsWindow(Gtk.Window):
@@ -369,7 +381,6 @@ class SettingsWindow(Gtk.Window):
         elif ind.interval == 240:
             combo.set_active(6)
         else: # input not recognized...default to:
-            #pass
             combo.set_active(2)
 
         hbox.pack_start(label3, True, True, 0)
