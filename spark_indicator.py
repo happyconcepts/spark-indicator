@@ -156,7 +156,7 @@ class SparkIndicator(object):
     def save_settings(self):
 
         with open(prefFile, 'w') as uf:
-            uf.write('{"version":"0.1","base":"' +ind.base +'","interval":"'+str(ind.interval)+'","modified":"'+datetime.now().strftime('%m/%d %H:%M:%S')+'"}\n')
+            uf.write('{"version":"0.1b","base":"' +ind.base +'","interval":"'+str(ind.interval)+'","modified":"'+datetime.now().strftime('%m/%d %H:%M:%S')+'"}\n')
 
     def price_update(self):
         timestamp = datetime.now().strftime('%m/%d %H:%M:%S')
@@ -165,13 +165,7 @@ class SparkIndicator(object):
             if self.price_active == True:
                 self.b = binance(self.symbol)
 
-                if self.base =='EUR':
-                    self.c = coinmktcap(self.symbol, self.base)
-                    self.ind.set_label(self.c.run() + " ~BTC: "+ self.b.run() , "")
-                    self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/bts.png")
-                    print (timestamp + " BTS price: "+ self.c.price())
-
-                elif self.base =='CNY':
+                if self.base =='EUR' or self.base == 'CNY':
                     self.c = coinmktcap(self.symbol, self.base)
                     self.ind.set_label(self.c.run() + " ~BTC: "+ self.b.run() , "")
                     self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/bts.png")
