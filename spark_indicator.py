@@ -169,13 +169,13 @@ class SparkIndicator(object):
                 if self.base =='EUR' or self.base == 'CNY':
                     self.c = coinmktcap(self.symbol, self.base)
                     self.ind.set_label(self.c.run() + " ~BTC: "+ self.b.run() , "")
-                    self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/bts.png")
+                    self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/spark.png")
                     print (timestamp + " BTS price: "+ self.c.price())
 
                 else :
                     self.g = gate(self.symbol, self.base)
                     self.ind.set_label(self.g.run() + " ~BTC: "+ self.b.run() , "")
-                    self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/bts.png")
+                    self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/spark.png")
                     print (timestamp + " BTS price: "+ self.g.price())
 
                 if (test == True):
