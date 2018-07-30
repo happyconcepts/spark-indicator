@@ -149,7 +149,7 @@ class SparkIndicator(object):
         dialog.set_copyright('Copyright 2018 Ben Bird @happyconcepts')
         dialog.set_comments('Track Spark, Bitshares, and other coin prices on Linux desktop (Unity)\n'+'Loaded with Python '+ str(sys.version_info[0]) +'\n\n'+'Your donations help!\n\n' + 'Bitshares account:\n' + 'buy-bitcoin\n' +'\nBitcoin address:\n' +'1FZhqidv4oMRoiry9mGASFL7JSgdB27Mmn')
         dialog.set_website('https://github.com/happyconcepts/spark-indicator')
-        pixbuf = Pixbuf.new_from_file_at_size("icons/bitshares.png", 45, 45)
+        pixbuf = Pixbuf.new_from_file_at_size("icons/spark.png", 45, 45)
         dialog.set_logo(pixbuf)
         dialog.run()
         dialog.destroy()
