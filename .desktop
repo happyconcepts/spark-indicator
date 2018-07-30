@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Exec=python /home/sparkmaster/projects/spark-indicator/spark_indicator.py
+Icon=/home/sparkmaster/projects/spark-indicator/icons/spark.png 
+Name=Spark Indicator
+Terminal=true
