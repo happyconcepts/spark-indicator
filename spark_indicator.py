@@ -7,7 +7,7 @@
 # use is subject to creative commons non-commercial share-alike 4.0 license
 # This open source software is released to improves transparency and security
 # for users of spark token
-VERSION = '1.1'
+VERSION = '1.1b'
 APPID 	= 'spark-indicator'
 
 import os
@@ -39,7 +39,7 @@ if test == True:
 class SparkIndicator(object):
     def __init__(self):
         self.ind = AppIndicator.Indicator.new(APPID,
-	PROJECTDIR + "/icons/bts.png",AppIndicator.IndicatorCategory.SYSTEM_SERVICES
+	PROJECTDIR + "/icons/spark.png",AppIndicator.IndicatorCategory.SYSTEM_SERVICES
         )
         self.ind.set_status(AppIndicator.IndicatorStatus.ACTIVE)
 
