@@ -26,7 +26,6 @@ gi.require_version('AppIndicator3', '0.1')
 from gi.repository import AppIndicator3 as AppIndicator
 
 PROJECTDIR = os.path.dirname(os.path.realpath(__file__))
-#print (PROJECTDIR)
 
 dir = os.path.expanduser("~") +"/.spark-indicator"
 if not os.path.exists(dir):
@@ -150,7 +149,7 @@ class SparkIndicator(object):
         dialog.set_copyright('Copyright 2018 Ben Bird @happyconcepts')
         dialog.set_comments('Track Spark, Bitshares, and other coin prices on Linux desktop (Unity)\n'+'Loaded with Python '+ str(sys.version_info[0]) +'\n\n'+'Your donations help!\n\n' + 'Bitshares account:\n' + 'buy-bitcoin\n' +'\nBitcoin address:\n' +'1FZhqidv4oMRoiry9mGASFL7JSgdB27Mmn')
         dialog.set_website('https://github.com/happyconcepts/spark-indicator')
-        pixbuf = Pixbuf.new_from_file_at_size(PROJECTDIR+"/icons/spark_128.png", 64, 64)
+        pixbuf = Pixbuf.new_from_file_at_size("icons/spark_128.png", 128, 128)
         dialog.set_logo(pixbuf)
         dialog.run()
         dialog.destroy()
@@ -170,13 +169,13 @@ class SparkIndicator(object):
                 if self.base =='EUR' or self.base == 'CNY':
                     self.c = coinmktcap(self.symbol, self.base)
                     self.ind.set_label(self.c.run() + " ~BTC: "+ self.b.run() , "")
-                    self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/spark.png")
+                    self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/bts.png")
                     print (timestamp + " BTS price: "+ self.c.price())
 
                 else :
                     self.g = gate(self.symbol, self.base)
                     self.ind.set_label(self.g.run() + " ~BTC: "+ self.b.run() , "")
-                    self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/spark.png")
+                    self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/bts.png")
                     print (timestamp + " BTS price: "+ self.g.price())
 
                 if (test == True):
