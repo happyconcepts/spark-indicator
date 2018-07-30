@@ -3,10 +3,11 @@
 
 # spark-indicator copyright 2018 ben bird
 # https://github.com/happyconcepts/spark-indicator
-# use is subject to creative commons non-commercial share-alike 4.0 license
 # THIS SOFTWARE IS LICENSED FOR NON-COMMERCIAL USE ONLY!
-# open source software improves transparency and security for users of software
-VERSION = '1.0b'
+# use is subject to creative commons non-commercial share-alike 4.0 license
+# This open source software is released to improves transparency and security
+# for users of spark
+VERSION = '1.1'
 APPID 	= 'spark-indicator'
 
 import os
@@ -156,7 +157,7 @@ class SparkIndicator(object):
     def save_settings(self):
 
         with open(prefFile, 'w') as uf:
-            uf.write('{"version":"0.1b","base":"' +ind.base +'","interval":"'+str(ind.interval)+'","modified":"'+datetime.now().strftime('%m/%d %H:%M:%S')+'"}\n')
+            uf.write('{"version":"'+VERSION+'","base":"' +ind.base +'","interval":"'+str(ind.interval)+'","modified":"'+datetime.now().strftime('%m/%d %H:%M:%S')+'"}\n')
 
     def price_update(self):
         timestamp = datetime.now().strftime('%m/%d %H:%M:%S')
@@ -183,7 +184,7 @@ class SparkIndicator(object):
             else:
                 self.ind.set_label("Pricing is not active.","")
 
-                print (timestamp + " prices not updated (not active)")
+                print (timestamp + " local time -" + " prices not updated (not active)")
                 if (test == True):
                     print ("update interval is " + str(self.interval) + " min")
 
@@ -192,7 +193,7 @@ class SparkIndicator(object):
             self.ind.set_label("spark-indicator","")
             self.ind.set_icon(os.path.dirname(os.path.realpath(__file__)) +"/icons/bell_on.png")
 
-            print (timestamp + " prices not updated (check connection)")
+            print (timestamp + " local time -" + " prices not updated (check connection)")
 
             if test == True:
                 print("error: " + str(e))
