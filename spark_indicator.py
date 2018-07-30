@@ -6,7 +6,7 @@
 # THIS SOFTWARE IS LICENSED FOR NON-COMMERCIAL USE ONLY!
 # use is subject to creative commons non-commercial share-alike 4.0 license
 # This open source software is released to improves transparency and security
-# for users of spark
+# for users of spark token
 VERSION = '1.1'
 APPID 	= 'spark-indicator'
 
