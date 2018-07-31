@@ -1,11 +1,12 @@
 [Desktop Entry]
 Type=Application
-Exec=python3 /home/sparkmaster/projects/spark-indicator/spark_indicator.py
-Icon=/home/sparkmaster/projects/spark-indicator/icons/spark_128.png
+Exec=python3 /full/path/to/spark-indicator/spark_indicator.py
+Icon=/full/path/to/spark-indicator/icons/spark_128.png
 Name=Spark Indicator
 Terminal=true
 Name[en_US]=Spark
 
-# set full paths to script and icon
+# set full paths for the script and icon
 # copy this file to ~/.local/share/applications/
 # set execute permission so it is accessible from the Dash
+# Now you can add Spark to your Ubuntu Dash!

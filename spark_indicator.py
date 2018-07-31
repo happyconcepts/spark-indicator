@@ -6,7 +6,7 @@
 # THIS SOFTWARE IS LICENSED FOR NON-COMMERCIAL USE ONLY!
 # use is subject to creative commons non-commercial share-alike 4.0 license
 
-VERSION = '1.1b'
+VERSION = '1.2'
 APPID 	= 'spark-indicator'
 
 import os
