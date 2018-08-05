@@ -80,11 +80,23 @@ class SparkIndicator(object):
         self.price_update()
         self.testid = GLib.timeout_add_seconds(60 * self.interval, self.price_update)
 
+        window = Gtk.Window(title="Hello World")
+        window.connect("destroy", lambda w: window.hide() )
+        window.add(Gtk.Label("Hello World!"))
+        window.show_all()
+
+
     def build_menu(self):
 
         item_settings = Gtk.MenuItem()
         item_settings.set_label("Settings...")
         item_settings.connect("activate", self.handler_settings_callback)
+        item_settings.show()
+        self.menu.append(item_settings)
+
+        item_settings = Gtk.MenuItem()
+        item_settings.set_label("Open Main Window...")
+        item_settings.connect("activate", self.mainWindow)
         item_settings.show()
         self.menu.append(item_settings)
 
@@ -146,12 +158,20 @@ class SparkIndicator(object):
         dialog.set_license('Creative Commons Attribution Share-Alike Non-Commercial 4 License\n\n' + ' A copy of the license is available at https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode' )
         dialog.set_wrap_license(True)
         dialog.set_copyright('Copyright 2018 Ben Bird @happyconcepts')
-        dialog.set_comments('Track Spark, Bitshares, and other coin prices on Linux desktop (Unity)\n'+'Loaded with Python '+ str(sys.version_info[0]) +'\n\n'+'Your donations help!\n\n' + 'Bitshares account:\n' + 'buy-bitcoin\n' +'\nBitcoin address:\n' +'1FZhqidv4oMRoiry9mGASFL7JSgdB27Mmn')
+        dialog.set_comments('Track Sparks, Bitshares, and other coin prices on Linux desktop (Unity)\n'+'Loaded with Python '+ str(sys.version_info[0]) +'\n\n'+'Your donations help!\n\n' + 'Bitshares account:\n' + 'buy-bitcoin\n' +'\nBitcoin address:\n' +'1FZhqidv4oMRoiry9mGASFL7JSgdB27Mmn')
         dialog.set_website('https://github.com/happyconcepts/spark-indicator')
         pixbuf = Pixbuf.new_from_file_at_size(PROJECTDIR +"/icons/spark_128.png", 128, 128)
         dialog.set_logo(pixbuf)
         dialog.run()
         dialog.destroy()
+
+    def mainWindow(self, source):
+        window = Gtk.Window(title="Hello This is the main Dash")
+        window.set_default_size(300, 160)
+        window.set_position(Gtk.WindowPosition.CENTER)
+        window.connect("destroy", lambda w: window.hide() )
+        window.add(Gtk.Label("Spark Dashboard"))
+        window.show_all()
 
     def save_settings(self):
 
