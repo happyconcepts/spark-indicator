@@ -80,11 +80,6 @@ class SparkIndicator(object):
         self.price_update()
         self.testid = GLib.timeout_add_seconds(60 * self.interval, self.price_update)
 
-        window = Gtk.Window(title="Hello World")
-        window.connect("destroy", lambda w: window.hide() )
-        window.add(Gtk.Label("Hello World!"))
-        window.show_all()
-
 
     def build_menu(self):
 
