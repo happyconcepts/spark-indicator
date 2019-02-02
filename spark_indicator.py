@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# spark-indicator copyright 2018 ben bird
+# spark-indicator
+# copyright 2018 ben bird all rights reserved.
 # https://github.com/happyconcepts/spark-indicator
-# THIS SOFTWARE IS LICENSED FOR NON-COMMERCIAL USE ONLY!
-# use is subject to creative commons non-commercial share-alike 4.0 license
+# THIS SOFTWARE IS LICENSED FOR NON-COMMERCIAL USE ONLY
+# Per Creative Commons Non-Commercial Share-Alike 4.0 license
 
-VERSION = '1.2'
+VERSION = '1.25'
 APPID 	= 'spark-indicator'
 
 import os
@@ -90,8 +91,8 @@ class SparkIndicator(object):
         self.menu.append(item_settings)
 
         item_settings = Gtk.MenuItem()
-        item_settings.set_label("Open Main Window...")
-        item_settings.connect("activate", self.mainWindow)
+        item_settings.set_label("Open Spark Dashboard ...")
+        item_settings.connect("activate", self.handler_mainwin_callback)
         item_settings.show()
         self.menu.append(item_settings)
 
@@ -102,7 +103,7 @@ class SparkIndicator(object):
         self.menu.append(item_refresh)
 
         item_about = Gtk.MenuItem()
-        item_about.set_label("About spark-indicator...")
+        item_about.set_label("About ...")
         item_about.connect("activate", self.about)
         item_about.show()
         self.menu.append(item_about)
@@ -116,8 +117,12 @@ class SparkIndicator(object):
         self.menu.show()
         self.ind.set_menu(self.menu)
 
-    def handler_settings_callback (self, source):
+    def handler_mainwin_callback (self, source):
+        win = MyWindow()
+        win.set_keep_above(True)
+        win.show_all()
 
+    def handler_settings_callback (self, source):
         win = SettingsWindow()
         win.set_keep_above(True)
         win.connect("destroy", self.handler_settings)
@@ -160,13 +165,8 @@ class SparkIndicator(object):
         dialog.run()
         dialog.destroy()
 
-    def mainWindow(self, source):
-        window = Gtk.Window(title="Hello This is the main Dash")
-        window.set_default_size(300, 160)
-        window.set_position(Gtk.WindowPosition.CENTER)
-        window.connect("destroy", lambda w: window.hide() )
-        window.add(Gtk.Label("Spark Dashboard"))
-        window.show_all()
+
+
 
     def save_settings(self):
 
@@ -216,6 +216,57 @@ class SparkIndicator(object):
 
     def main(self):
         Gtk.main()
+
+class MyWindow(Gtk.Window):
+
+    def __init__(self):
+
+        Gtk.Window.__init__(self, title="SPARK Dashboard")
+        self.set_border_width(15)
+        self.set_default_size(500, 360)
+        self.set_position(Gtk.WindowPosition.CENTER)
+
+        grid = Gtk.Grid()
+        self.add(grid)
+
+        self.label1 = "Buy"
+        self.button1 = Gtk.Button(label=self.label1)
+        self.button1.connect("clicked", self.on_button1_clicked)
+
+        #button2 = Gtk.Button(label="Button 2")
+        self.label2 = "Sell"
+        self.button2 = Gtk.Button(label=self.label2)
+        self.button2.connect("clicked", self.on_button2_clicked)
+
+        button3 = Gtk.Button(label="Button 3")
+        button4 = Gtk.Button(label="Button 4")
+        button5 = Gtk.Button(label="Button 5")
+        button6 = Gtk.Button(label="Button 6")
+
+        grid.add(self.button1)
+        grid.attach(self.button2, 1, 0, 1, 1)
+        grid.attach_next_to(button3, self.button1, Gtk.PositionType.BOTTOM, 1, 2)
+        grid.attach_next_to(button4, button3, Gtk.PositionType.RIGHT, 2, 1)
+        grid.attach(button5, 1, 2, 1, 1)
+        grid.attach_next_to(button6, button5, Gtk.PositionType.RIGHT, 1, 1)
+
+
+        #self.box = Gtk.Box(spacing=6)
+        #self.add(self.box)
+
+
+        #self.box.pack_start(self.button1, True, True, 0)
+
+
+        #self.box.pack_start(self.button2, True, True, 0)
+
+
+    def on_button1_clicked(self, widget):
+        print(self.label1)
+
+    def on_button2_clicked(self, widget):
+        print(self.label2)
+
 
 class gate:
     def __init__(self, coin='bts', base='usdt'):

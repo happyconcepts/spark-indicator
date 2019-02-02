@@ -3,10 +3,12 @@ Type=Application
 Exec=python3 /full/path/to/spark-indicator/spark_indicator.py
 Icon=/full/path/to/spark-indicator/icons/spark_128.png
 Name=Spark Indicator
+Comment=Desktop indicator to access Spark from Gnome and Unity (Dash)
 Terminal=true
 Name[en_US]=Spark
+Encoding=UTF-8
 
-# set full paths for the script and icon
-# copy this file to ~/.local/share/applications/
-# set execute permission so it is accessible from the Dash
-# Now you can add Spark to your Ubuntu Dash!
+# Now you can add Spark to your Desktop with Ubuntu 16.04 and 18.04!
+# 1. Set the full paths for both the script and icon, above!
+# 2. Save and Copy this desktop file to ~/.local/share/applications/
+# 3. Set the execute permission so it is accessible from the Dash
